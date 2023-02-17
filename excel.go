@@ -1,8 +1,7 @@
-package excel
+package helper
 
 import (
 	"fmt"
-	"helper/ti"
 	"log"
 	"reflect"
 	"strings"
@@ -34,7 +33,7 @@ type SheetConfig struct {
 			ScaleY float64 //图片缩放比例
 			Path   string  //图片路径
 		}
-		SpaceRow int //图片直接空多少行。默认最小10
+		SpaceRow int //图片之间空多少行。默认最小10
 	}
 }
 
@@ -189,23 +188,23 @@ func GetExcelColumn(num int) string {
 
 func GenerateExcelName(name string) string {
 	if name == "" {
-		return fmt.Sprintf("未命名-%s%s", ti.PrintTime(ti.ExcelTime), Suffix)
+		return fmt.Sprintf("未命名-%s%s", PrintTime(ExcelTime), Suffix)
 	} else {
 		if strings.Contains(name, Suffix) {
 			index := strings.Index(name, Suffix)
 			if index == 0 {
 				if name[5:] == "" {
-					return fmt.Sprintf("未命名-%s%s", ti.PrintTime(ti.ExcelTime), Suffix)
+					return fmt.Sprintf("未命名-%s%s", PrintTime(ExcelTime), Suffix)
 				} else {
-					return fmt.Sprintf("%s-%s%s", name[5:], ti.PrintTime(ti.ExcelTime), Suffix)
+					return fmt.Sprintf("%s-%s%s", name[5:], PrintTime(ExcelTime), Suffix)
 				}
 			} else if len(name)-index == 5 {
-				return fmt.Sprintf("%s-%s%s", name[:len(name)-5], ti.PrintTime(ti.ExcelTime), Suffix)
+				return fmt.Sprintf("%s-%s%s", name[:len(name)-5], PrintTime(ExcelTime), Suffix)
 			} else {
-				return fmt.Sprintf("%s-%s%s", name[:index], ti.PrintTime(ti.ExcelTime), Suffix)
+				return fmt.Sprintf("%s-%s%s", name[:index], PrintTime(ExcelTime), Suffix)
 			}
 		} else {
-			return fmt.Sprintf("%s-%s%s", name, ti.PrintTime(ti.ExcelTime), Suffix)
+			return fmt.Sprintf("%s-%s%s", name, PrintTime(ExcelTime), Suffix)
 		}
 	}
 }

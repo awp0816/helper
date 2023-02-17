@@ -1,4 +1,4 @@
-package ti
+package helper
 
 import "time"
 
