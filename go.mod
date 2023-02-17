@@ -1,4 +1,4 @@
-module helper
+module github.com/awp0816/helper
 
 go 1.16
 
