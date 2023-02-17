@@ -1,4 +1,4 @@
-package str
+package helper
 
 import (
 	"encoding/json"
